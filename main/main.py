@@ -6,7 +6,7 @@ if int(sys.version[0]) < 3:
 
 nameOfGame = "Skateboard Game"
 pygame.init()
-screen = pygame.display.set_mode((0, 0), pygame.RESIZABLE)
+screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
 pygame.display.set_caption(nameOfGame)
 # pygame.display.set_icon(pygame.image.load('./images/hiking.png'))
 cur_path = os.getcwd()
