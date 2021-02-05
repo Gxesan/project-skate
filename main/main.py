@@ -4,12 +4,11 @@ from scene import scene
 if int(sys.version[0]) < 3:
     print("Error detected. Wrong python version.")
 
-nameOfGame = "Skateboard Game"
+nameOfGame = "Project Skate"
 pygame.init()
 screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
 pygame.display.set_caption(nameOfGame)
 # pygame.display.set_icon(pygame.image.load('./images/hiking.png'))
-cur_path = os.getcwd()
 active_scene = scene.StartScene(screen)
 
 while active_scene != None:
