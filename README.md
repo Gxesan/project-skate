@@ -1,2 +1,2 @@
-# skateboard-game
-Skateboard game
+# project skate
+Project Skate
