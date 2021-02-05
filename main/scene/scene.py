@@ -1,5 +1,5 @@
 from .utils import SceneBase, draw_rounded_rect, half_of
-import pygame, json, random, time
+import pygame, json, random, time, webbrowser
 
 font = "./font/dense-letters.otf"
 
@@ -8,20 +8,29 @@ class StartScene(SceneBase):
         SceneBase.__init__(self)
         self.screen = screen
 
+        self.interactingbutton = None
         self.init(self.screen)
 
     def init(self, screen):
         self.buttons = []
-        self.interactingbutton = None
 
         self.frame = pygame.Rect(100, 100, screen.get_width() - 200, screen.get_height() - 200)
 
-        self.button1 = pygame.Rect(half_of(screen.get_width()) - 137.5, half_of(screen.get_height()) - 100, 275, 70)
+        self.button1 = pygame.Rect(half_of(screen.get_width()) - 137.5, half_of(screen.get_height()), 275, 70)
         self.buttons.append(self.button1)
-        self.button2 = pygame.Rect(half_of(screen.get_width()) - 137.5, half_of(screen.get_height()), 275, 70)
+        self.button2 = pygame.Rect(half_of(screen.get_width()) - 137.5, half_of(screen.get_height()) + 100, 275, 70)
         self.buttons.append(self.button2)
-        self.button3 = pygame.Rect(half_of(screen.get_width()) - 137.5, half_of(screen.get_height()) + 100, 275, 70)
+        self.button3 = pygame.Rect(half_of(screen.get_width()) - 137.5, half_of(screen.get_height()) + 200, 275, 70)
         self.buttons.append(self.button3)
+
+        self.socialbutton1 = pygame.Rect(half_of(screen.get_width()) - 112, half_of(screen.get_height()) + 285, 70, 70)
+        self.buttons.append(self.socialbutton1)
+        self.github_image = pygame.image.load("./images/rsz_25231.png")
+
+        self.socialbutton2 = pygame.Rect(half_of(screen.get_width()) - 35, half_of(screen.get_height()) + 285, 70, 70)
+        self.buttons.append(self.socialbutton2)
+        self.socialbutton3 = pygame.Rect(half_of(screen.get_width()) + 42, half_of(screen.get_height()) + 285, 70, 70)
+        self.buttons.append(self.socialbutton3)
 
     def ProcessInput(self, events, pressed_keys):
         for event in events:
@@ -33,6 +42,16 @@ class StartScene(SceneBase):
                         break
                     else:
                         self.interactingbutton = None
+            elif event.type == pygame.MOUSEBUTTONDOWN:
+                mouse_pos = event.pos
+
+                if self.button3.collidepoint(mouse_pos):
+                    pygame.quit()
+                    exit()
+                if self.socialbutton1.collidepoint(mouse_pos):
+                    webbrowser.open("https://github.com/banjo-studios/project-skate")
+                    pygame.quit()
+                    exit()
 
     def Update(self):
         pass
@@ -49,4 +68,5 @@ class StartScene(SceneBase):
             else:
                 draw_rounded_rect(screen, button, (255, 0, 0), 18)
 
+        screen.blit(self.github_image, (half_of(screen.get_width()) - 107, half_of(screen.get_height()) + 290))
         pygame.display.flip()
