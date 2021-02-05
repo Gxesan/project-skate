@@ -25,6 +25,8 @@ class StartScene(SceneBase):
                     else:
                         self.interactingbutton = None
 
+#interactive buttons
+
     def Update(self):
         pass
 
