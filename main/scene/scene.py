@@ -18,15 +18,15 @@ class StartScene(SceneBase):
 
         self.button1 = pygame.Rect(half_of(screen.get_width()) - 137.5, half_of(screen.get_height()), 275, 70)
         self.buttons.append(self.button1)
-        self.button1text = pygame.font.Font(font, 32).render("Button text", True, (255, 255, 255))
+        self.button1text = pygame.font.Font(font, 32).render("     New Game", True, (255, 255, 255))
 
         self.button2 = pygame.Rect(half_of(screen.get_width()) - 137.5, half_of(screen.get_height()) + 100, 275, 70)
         self.buttons.append(self.button2)
-        self.button2text = pygame.font.Font(font, 32).render("Button text", True, (255, 255, 255))
+        self.button2text = pygame.font.Font(font, 32).render("     Load Game", True, (255, 255, 255))
 
         self.button3 = pygame.Rect(half_of(screen.get_width()) - 137.5, half_of(screen.get_height()) + 200, 275, 70)
         self.buttons.append(self.button3)
-        self.button3text = pygame.font.Font(font, 32).render("Button text", True, (255, 255, 255))
+        self.button3text = pygame.font.Font(font, 32).render("     Quit Game", True, (255, 255, 255))
 
         self.socialbutton1 = pygame.Rect(half_of(screen.get_width()) - 112, half_of(screen.get_height()) + 285, 70, 70)
         self.buttons.append(self.socialbutton1)
@@ -60,7 +60,6 @@ class StartScene(SceneBase):
 
     def Update(self):
         pass
-
     def Render(self, screen):
         self.init(screen)
 
